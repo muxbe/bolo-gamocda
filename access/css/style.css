@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.conteiner {
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+.headsection {
+  background-color: #dddddd;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.headsection-inside {
+  max-width: 1786px;
+  width: 100%;
+}
+.headsection-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.roca {
+  margin-top: 48px;
+  max-width: 113px;
+  width: 100%;
+  font-family: "Poppins-ExtraBold";
+  font-size: xx-large;
+  display: flex;
+  align-items: baseline;
+}
+.rocaarticle {
+  /* color: #0081ff; */
+
+  max-width: 10px;
+  max-height: 10px;
+  width: 100%;
+  height: 100%;
+  background-color: #0081ff;
+  border-radius: 10px;
+}
+.resume {
+  font-family: "Montser-Regular";
+  font-size: xx-small;
+  color: #b3b3b3;
+  margin-top: -7px;
+}
+.absolute01 {
+  max-width: 227px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.zero1 {
+  display: flex;
+  justify-content: center;
+  /*   max-width: 170px;
+  width: 100%;
+  max-height: 221px;
+  height: 100%; */
+  font-family: "Poppins-ExtraBold";
+  color: #1c1c1c;
+  font-size: 158px;
+}
+/* .zero1p {
+  font-family: "Poppins-ExtraBold";
+  color: #1c1c1c;
+  font-size: 158px;
+} */
+.absolute {
+  position: absolute;
+  font-family: "Poppins-ExtraBold";
+  font-size: 43px;
+  color: #373737;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.aboute-div {
+  padding-top: 138px;
+  max-width: 1900px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.about-correct {
+  max-width: 890px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+.about-kontent {
+  max-width: 582px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.im {
+  font-family: "Glacia-Regular";
+  font-size: 49.7px;
+  color: #212121;
+}
+.my {
+  font-family: "Glacia-Bold";
+  font-size: 71px;
+  color: #212121;
+}
+.profesi {
+  font-family: "Glacia-Regular";
+  font-size: x-large;
+  color: #212121;
+}
+.contact-icons {
+  max-width: 30px;
+  width: 100%;
+  max-height: 30px;
+  max-height: 100%;
+  padding-left: 5px;
+}
+.clients {
+  padding-top: 181.46px;
+  max-width: 1686px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.clients-iside {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 340px;
+  width: 100%;
+  font-family: "Montser-Bold";
+}
+.clientsp {
+  display: flex;
+}
+.clients100 {
+  color: #e93656;
+  padding-right: 5px;
+}
+.tablo {
+  max-width: 340px;
+  width: 100%;
+  height: 6px;
+  background-color: #e93656;
+  margin-top: 20px;
+  margin-bottom: 47px;
+}
+.slider-cover {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: relative;
+}
+#myimg {
+  max-width: 1920px;
+  width: 100%;
+  max-height: 960px;
+  height: 100%;
+}
+.slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 100%;
+  transition: 1s;
+  filter: brightness(0.5);
+  z-index: -1;
+}
+
+.slider.active {
+  display: block;
+  width: 100%;
+  z-index: 0;
+  filter: brightness(0.9);
+}
