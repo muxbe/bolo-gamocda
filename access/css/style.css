@@ -188,6 +188,7 @@
   filter: brightness(0.9);
 }
 .my-description-section {
+  padding-top: 135px;
   max-width: 1920px;
   width: 100%;
   display: flex;
@@ -201,6 +202,7 @@
   justify-content: space-between;
 }
 .my-description {
+  padding-top: 83px;
   max-width: 334px;
   width: 100%;
   display: flex;
@@ -241,4 +243,207 @@
   max-height: 603px;
   width: 100%;
   height: 100%;
+}
+.description-procents {
+  padding-top: 60px;
+  max-width: 302px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: flex-start; */
+}
+.description-procent-text {
+  margin-top: 31.05px;
+  display: flex;
+  font-family: "Glacia-Bold";
+  font-size: larger;
+  color: #555555;
+}
+.description-red-p {
+  color: #e93656;
+  padding-left: 11px;
+}
+.description-procent-border-begin {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 300px;
+  max-height: 8px;
+  width: 100%;
+  height: 100%;
+
+  background-color: #f0f0f0;
+  margin-top: 15px;
+}
+.html-description-procent-border {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 300px;
+  max-height: 8px;
+  width: 100%;
+  height: 100%;
+  animation-name: htmlanimation;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 80%);
+
+  margin-top: 15px;
+}
+.css-description-procent-border {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 300px;
+  max-height: 8px;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 70%);
+  animation-name: cssanimation;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  margin-top: 15px;
+}
+.js-description-procent-border {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 300px;
+  max-height: 8px;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 50%);
+  animation-name: jsanimation;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  margin-top: 15px;
+}
+.seo-description-procent-border {
+  display: flex;
+  justify-content: flex-start;
+  max-width: 300px;
+  max-height: 8px;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 20%);
+  animation-name: seoanimation;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  margin-top: 15px;
+}
+.description-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+.description-button {
+  max-width: 50px;
+  max-height: 50px;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+  margin-top: 78.01px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  margin-left: 5px;
+}
+.description-button img {
+  max-width: 30px;
+  max-height: 30px;
+  width: 100%;
+  height: 100%;
+}
+.description-button:hover {
+  background-color: #15263e;
+}
+
+.description-bottom {
+  margin-top: 100px;
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #131a36;
+}
+.description-kontact {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: 981px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff;
+}
+.desecription-number,
+.description-adress,
+.description-email {
+  max-width: 295px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.description-iframe {
+  border: none;
+  background-color: #131a36;
+  max-width: 90px;
+  max-height: 90px;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  border: 2px dashed #ffffff;
+  border-radius: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description-iframe:hover {
+  background-color: #e93656;
+  border: 0.1px solid #e93656;
+}
+.deskription-kontakt-kontent h3 {
+  font-family: "Glacia-Bold";
+  font-size: x-large;
+  padding-bottom: 15px;
+}
+.deskription-kontakt-kontent p {
+  font-family: "Mul";
+  font-size: small;
+}
+/* .deskription-kontakt-kontent {
+  max-width: 180px;
+  width: 100%;
+}
+ */
+@keyframes htmlanimation {
+  from {
+    background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 80%);
+  }
+  to {
+    background: -webkit-linear-gradient(left, #e93656 80%, #f0f0f0 20%);
+  }
+}
+@keyframes cssanimation {
+  from {
+    background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 70%);
+  }
+  to {
+    background: -webkit-linear-gradient(left, #e93656 70%, #f0f0f0 30%);
+  }
+}
+@keyframes jsanimation {
+  from {
+    background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 50%);
+  }
+  to {
+    background: -webkit-linear-gradient(left, #e93656 50%, #f0f0f0 50%);
+  }
+}
+@keyframes seoanimation {
+  from {
+    background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 20%);
+  }
+  to {
+    background: -webkit-linear-gradient(left, #e93656 20%, #f0f0f0 20%);
+  }
 }
