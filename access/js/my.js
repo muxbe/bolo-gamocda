@@ -105,3 +105,59 @@ window.addEventListener("scroll", function () {
     }
   });
 });
+let slide = document.getElementsByClassName("mtavari");
+let navlinks = document.querySelectorAll(".nav-click");
+let currenTSlide = 0;
+
+function changeSlide(moveTo) {
+  if (moveTo >= slide.length) {
+    moveTo = 0;
+  }
+  if (moveTo < 0) {
+    moveTo = slides.length - 1;
+  }
+
+  slide[currenTSlide].classList.toggle("activ");
+  navlinks[currenTSlide].classList.toggle("activ");
+  slide[moveTo].classList.toggle("activ");
+  navlinks[moveTo].classList.toggle("activ");
+
+  currenTSlide = moveTo;
+}
+
+document.querySelectorAll(".nav-click").forEach((bullet, bulletIndex) => {
+  bullet.addEventListener("click", () => {
+    if (currenTSlide !== bulletIndex) {
+      changeSlide(bulletIndex);
+    }
+  });
+});
+const proectButtons = document.querySelectorAll(".filter-option");
+const currentButton = 0;
+function filterproects(e) {
+  const proeects = document.querySelectorAll(".proect-lines div");
+
+  let filter = e.target.dataset.filter;
+  proeects.forEach((proect) => {
+    proect.classList.contains(filter)
+      ? proect.classList.remove("hidden")
+      : proect.classList.add("hidden");
+
+    if (filter === "*") {
+      proeects.forEach((proect) => proect.classList.remove("hidden"));
+    }
+  });
+}
+function filterproects(e) {
+  const proeects = document.querySelectorAll(".proect-lines div");
+  let filter = e.target.dataset.filter;
+  if (filter === "*") {
+    proeects.forEach((proect) => proect.classList.remove("hidden"));
+  } else {
+    proeects.forEach((proect) => {
+      proect.classList.contains(filter)
+        ? proect.classList.remove("hidden")
+        : proect.classList.add("hidden");
+    });
+  }
+}
