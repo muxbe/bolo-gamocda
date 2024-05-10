@@ -1041,7 +1041,205 @@
   max-width: 164px;
   width: 100%;
 }
+.form-section {
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: #000000;
+}
+.form-section img {
+  opacity: 0.29;
+}
+.inputs-absolute {
+  position: absolute;
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.inputs-absolute.remove {
+  display: none;
+}
+dialog.open {
+  position: absolute;
+  background-color: #ffffff;
+  max-width: 1920px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  font-family: "Poppins-SemiBold ";
+}
+.form-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-head h2 {
+  font-family: " Jaapok-Regular";
+  font-size: 45px;
+  color: #ffffff;
+}
+.form-head p {
+  padding-top: 12px;
+  padding-bottom: 46px;
+  font-family: "Robot-Light";
+  color: #eeeeee;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputs-first-line {
+  width: 890px;
 
+  display: flex;
+  justify-content: space-between;
+}
+.inputs {
+  width: 290px;
+  height: 50px;
+  background-color: #fafafa;
+  border: none;
+}
+.input-field:has(input[required]) ::placeholder::after {
+  content: "*";
+  color: red;
+}
+.inputs:focus {
+  border: none;
+}
+.inputs.error {
+  border: 3px solid #e93656;
+}
+.form-span {
+  color: red;
+}
+.inputs.correct {
+  border: 3px solid green;
+}
+.text-area-input-div {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.messaget {
+  width: 890px;
+  height: 110px;
+  background: #fafafa 0% 0% no-repeat padding-box;
+  opacity: 1;
+  border: none;
+}
+.error-message {
+  color: #e93656;
+}
+.messaget.error {
+  border: 43px solid #e93656;
+}
+.messaget.correct {
+  border: 3px solid green;
+}
+::placeholder {
+  padding-left: 30px;
+  padding-top: 22px;
+  font-family: "Pop-SemiBold ";
+  color: #515151;
+}
+.form-button {
+  width: 187px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Glacia-Bold";
+  background-color: transparent;
+  color: #fafafa;
+  border: 2px solid #fafafa;
+  margin-top: 30px;
+}
+.form-button:hover {
+  color: #e93656;
+  border: 2px solid #e93656;
+}
+.footer-head {
+  max-width: 1920px;
+  width: 100%;
+  height: 428px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #282828;
+}
+.footer-roca-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-h {
+  display: flex;
+  align-items: baseline;
+}
+.footer-h h2 {
+  font-family: "Pop-ExtraBold";
+  font-size: 55.42px;
+  color: #ffffff;
+}
+.footer-h span {
+  width: 14px;
+  height: 14px;
+  background-color: #e93656;
+  border-radius: 14px;
+}
+.footer-roca-div pre {
+  display: flex;
+  justify-content: center;
+  max-width: 613px;
+  width: 100%;
+  font-family: "Robot-Regular";
+  color: #a5a5a5;
+
+  padding-top: 22.23px;
+  padding-bottom: 30px;
+  line-height: 30px;
+}
+.footer-contact-icons {
+  max-width: 20px;
+  width: 100%;
+  max-height: 20px;
+  height: 100%;
+  padding-left: 20px;
+}
+.footer-fot {
+  max-width: 1920px;
+  width: 100%;
+  height: 82px;
+  /* height: 100%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #171717;
+}
+.footer-fot p {
+  font-family: "Mul";
+  color: #a0a8b7;
+}
+.footer-fot pre {
+  font-family: "Mul";
+  color: #ffffff;
+}
 @keyframes htmlanimation {
   from {
     background: -webkit-linear-gradient(left, #e93656 0.1%, #f0f0f0 80%);
