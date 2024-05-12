@@ -31,7 +31,7 @@ const cssprocent = document.querySelectorAll("#css-procent-border");
 const jsprocent = document.querySelectorAll("#js-procent-border");
 const seoprocent = document.querySelectorAll("#seo-procent-border");
 
-const descriptionProcents = document.querySelector(".description-pereent");
+const descriptionProcents = document.querySelector(".description-procents");
 /* const rect = descriptionProcents.getBoundingClientRect(); */
 
 window.addEventListener("scroll", function () {
