@@ -301,7 +301,6 @@ form.addEventListener("submit", async (event) => {
 
     const resData = await res.json();
 
-    console.log(resData);
     if (data.status === 1) {
       form.classList.add("remove");
       dialog.classList.add("open");
