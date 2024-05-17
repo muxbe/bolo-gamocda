@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="website" />
+    <meta property="og:title" content="bolo gamocda" />
+    <meta property="og:description" content="chem shesaxeb" />
+    <meta
+      property="og:image"
+      content="https://muxbe.github.io/shualeduri-gamocda/img/big-img-2.png"
+    />
     <link rel="stylesheet" href="access/css/fonts.css" />
     <link rel="stylesheet" href="access/css/style.css" />
     <title>bolo gamocda</title>
@@ -372,58 +379,58 @@
         <div class="proects-buttons">
           <button
             class="filter-option actual"
+            onclick="filterSelection('all')"
             data-filter="*"
-            onclick="filterproects(event)"
           >
             all
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('work-ideas')"
             data-filter="work-ideas"
-            onclick="filterproects(event)"
           >
             work ideas
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('mockup')"
             data-filter="mockup"
-            onclick="filterproects(event)"
           >
             mockup
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('psd-design')"
             data-filter="psd-design"
-            onclick="filterproects(event)"
           >
             psd design
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('logo')"
             data-filter="logo"
-            onclick="filterproects(event)"
           >
             logo
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('presentation')"
             data-filter="presentation"
-            onclick="filterproects(event)"
           >
             presentation
           </button>
           <button
             class="filter-option"
+            onclick="filterSelection('icons')"
             data-filter="icons"
-            onclick="filterproects(event)"
           >
             icons
           </button>
         </div>
         <div class="proect-all">
           <div class="proect-lines">
-            <article class="work-article">
-              <div class="work-ideas">
+            <article class="proects work-article">
+              <div class="proects-text work-ideas">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -437,8 +444,8 @@
                 </article>
               </article>
             </article>
-            <article class="mockup-article">
-              <div class="mockup">
+            <article class="proects mockup-article">
+              <div class="proects-text mockup">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -452,8 +459,8 @@
                 </article>
               </article>
             </article>
-            <article class="psd-article">
-              <div class="psd-design">
+            <article class="proects psd-article">
+              <div class="proects-text psd-design">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -469,8 +476,8 @@
             </article>
           </div>
           <div class="proect-lines">
-            <article class="logo-article">
-              <div class="logo">
+            <article class="proects logo-article">
+              <div class="proects-text logo">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -484,8 +491,8 @@
                 </article>
               </article>
             </article>
-            <article class="presentation-article">
-              <div class="presentation">
+            <article class="proects presentation-article">
+              <div class="proects-text presentation">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -499,8 +506,8 @@
                 </article>
               </article>
             </article>
-            <article class="icons-article">
-              <div class="icons">
+            <article class="proects icons-article">
+              <div class="icons proects-text">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Natus blanditiis voluptatibus tempora eligendi eum quibusdam.
@@ -674,6 +681,7 @@
                   name="username"
                   placeholder="Your name"
                   class="inputs"
+                  required
                 />
                 <span class="error-message" id="username-error"></span>
               </div>
@@ -683,7 +691,8 @@
                   id="user-email"
                   class="inputs"
                   name="user-email"
-                  placeholder="Email Address*"
+                  placeholder="Email Address"
+                  required
                 />
                 <span class="error-message" id="user-email-error"></span>
               </div>
@@ -693,7 +702,8 @@
                   id="user-web"
                   class="inputs"
                   name="user-web"
-                  placeholder="Your Website*"
+                  placeholder="Your Website"
+                  required
                 />
                 <span class="error-message" id="user-web-error"></span>
               </div>

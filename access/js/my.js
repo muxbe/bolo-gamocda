@@ -106,8 +106,8 @@ document.querySelectorAll(".nav-click").forEach((bullet, bulletIndex) => {
 });
 const proectButtons = document.querySelectorAll(".filter-option");
 const currentButton = 0;
-function filterproects(e) {
-  const proeects = document.querySelectorAll(".proect-lines div");
+/* function filterproects(e) {
+  const proeects = document.querySelectorAll(".proects");
 
   let filter = e.target.dataset.filter;
   proeects.forEach((proect) => {
@@ -132,7 +132,51 @@ function filterproects(e) {
         : proect.classList.add("hidden");
     });
   }
+} */
+filterSelection("all");
+const btnContainer = document.getElementsByClassName("proects-buttons");
+const btns = document.getElementsByClassName("filter-option");
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function () {
+    const current = document.getElementsByClassName("actual");
+    current[0].className = current[0].className.replace(" actual", "");
+    this.className += " actual";
+  });
 }
+
+function filterSelection(c) {
+  let x, i;
+  x = document.querySelectorAll(".proects-text");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    removeClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) addClass(x[i], "show");
+  }
+}
+
+function addClass(element, name) {
+  let i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {
+      element.className += " " + arr2[i];
+    }
+  }
+}
+
+function removeClass(element, name) {
+  let i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
 const form = document.querySelector("form");
 const nameInput = document.querySelector("#username");
 const emailInput = document.querySelector("#user-email");
@@ -140,7 +184,7 @@ const userWeb = document.querySelector("#user-web");
 const nameError = document.querySelector("#username-error");
 const emailError = document.querySelector("#user-email-error");
 const webError = document.querySelector("#user-web-error");
-const message = document.querySelector("#message");
+const mesage = document.querySelector("#message");
 const messageError = document.querySelector("#user-message-error");
 const inputs = document.querySelectorAll("input");
 const formDiv = document.querySelector(".inputs-absolute");
@@ -173,14 +217,14 @@ function checkUserName() {
   }
 }
 function checkEmail() {
-  /*   if (filter.test(emailInput.value) === false) {
+  if (emailInput.value === false) {
     emailError.textContent = "Please enter a valid email address";
 
     emailInput.classList.remove("correct");
     emailInput.classList.add("error");
 
     return false;
-  } */
+  }
   if (emailInput.validity.valid === false) {
     emailError.textContent = "Email is required";
 
@@ -212,14 +256,14 @@ function chekweb() {
   }
 }
 function checkmessage() {
-  if (message.value.length > 50) {
+  if (mesage.value.length > 50) {
     messageError.textContent = "max 50 letter";
-    message.classList.remove("correct");
-    message.classList.add("error");
+    mesage.classList.remove("correct");
+    mesage.classList.add("error");
     return false;
   } else {
     messageError.textContent = "";
-    message.classList.remove("error");
+    mesage.classList.remove("error");
     return true;
   }
 }
@@ -227,12 +271,47 @@ const user = {
   name: nameInput.value,
   email: emailInput.value,
   website: userWeb.value,
-  mesage: message.value,
+  message: mesage.value,
 };
 nameInput.addEventListener("input", checkUserName);
+
 emailInput.addEventListener("input", checkEmail);
 userWeb.addEventListener("input", chekweb);
-message.addEventListener("input", checkmessage);
+mesage.addEventListener("input", checkmessage);
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const formData = new FormData();
+
+  formData.append("name", nameInput.value);
+  formData.append("email", emailInput.value);
+  formData.append("web", userWeb.value);
+  formData.append("message", mesage.value);
+
+  console.log(Array.from(formData));
+
+  try {
+    const res = await fetch("https://borjomi.loremipsum.ge/api/send-message", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: formData,
+    });
+
+    const resData = await res.json();
+
+    console.log(resData);
+    if (data.status === 1) {
+      form.classList.add("remove");
+      dialog.classList.add("open");
+    } else {
+      console.error();
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -241,105 +320,72 @@ form.addEventListener("submit", (e) => {
 
   const isWebValid = chekweb();
   const ismessageValid = checkmessage();
+
   if (isUserNameValid && isEmailValid && isWebValid && ismessageValid) {
-    fetch("https://borjomi.loremipsum.ge/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.status === 1) {
-          inputs.classList.add("remove");
-          dialog.show;
-        } else {
-          formSpan.textContent = "something wrong";
-        }
-      });
   } else {
     formSpan.textContent = "something wrong";
   }
 });
-
-/* async function getPost() {
-  try {
-    const response = await fetch(
-      "https://jsonplaceholder.typicode.com/posts/1",
-      {
-        method: "POST",
-      }
-    );
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
-}
-function getAllUsers() {
-  fetch("https://borjomi.loremipsum.ge/api/all-users")
+/* function sendsms() {
+  fetch("https://borjomi.loremipsum.ge/api/send-message", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  })
+   
     .then((response) => response.json())
     .then((data) => {
+      console.log("hai");
       if (data.status === 1) {
-        const users = data.users;
-        dialog.showModal();
-        formDiv.classList.add("remove");
-        renderUsers(users);
+        form.classList.add("remove");
+        dialog.classList.add("open");
+      } else {
+        console.error();
       }
-    })
-    .catch((error) => console.error(error));
-}
-function createUser(user) {
-  console.log(user, JSON.stringify(user));
-
-  fetch("https://borjomi.loremipsum.ge/api/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      getAllUsers();
-      user_id.value = "";
-      dialog.showModal();
-      dialog.classList.add("open");
-    });
-}
-form.addEventListener("submit", createUser);
- */
-/* function senInfo() {
-  fetch("https://borjomi.loremipsum.ge/api/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data);
     });
 } */
-/* form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  fetch("https://borjomi.loremipsum.ge/api/register", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(user),
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === 1) {
-        inputs.classList.add("remove");
-        dialog.show;
-      } else {
-        formSpan.textContent = "something wrong";
+/* function sendForm(){
+  const formData = new FormData();
+
+  formData.append('name', nameInput.value);
+  formData.append('email', emailInput.value);
+  formData.append('website',userWeb.value);
+  formData.append('message',mesage.value);
+
+  console.log(Array.from(formData));
+
+  try {
+    const res = await fetch(
+      'https://borjomi.loremipsum.ge/api/send-message',
+      {
+        method: 'POST',
+        body: formData,
+      },
+    );
+
+    const resData = await res.json();
+
+    console.log(resData);
+  } catch (err) {
+    console.log(err.message);
+  }
+} */
+/* async function sendData() {
+  try {
+    const response = await fetch(
+      "https://borjomi.loremipsum.ge/api/send-message",
+      {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(user),
       }
-    });
-});
+    );
+    console.log(await response.json());
+  } catch (e) {
+    console.error(e);
+  }
+}
  */
