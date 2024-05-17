@@ -325,3 +325,9 @@ form.addEventListener("submit", (e) => {
     formSpan.textContent = "something wrong";
   }
 });
+chrome.runtime.onMessage.addListener(function (msg, sender, sendResponse) {
+  // do something ...
+
+  // this line seems meaningless but you have to invoke it to avoid error.
+  sendResponse({ damn: true });
+});
