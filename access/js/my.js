@@ -287,7 +287,7 @@ form.addEventListener("submit", async (event) => {
   formData.append("web", userWeb.value);
   formData.append("message", mesage.value);
 
-  console.log(Array.from(formData));
+  /* console.log(Array.from(formData)); */
 
   try {
     const res = await fetch("https://borjomi.loremipsum.ge/api/send-message", {
