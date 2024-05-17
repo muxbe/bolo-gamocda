@@ -1142,8 +1142,8 @@ form.remove {
   /* color: #515151; */
 }
 input[required] {
-  background-image: radial-gradient(red 25%, transparent 26%),
-    radial-gradient(red 25%, transparent 26%);
+  background-image: radial-gradient(#daaf1b 25%, transparent 26%),
+    radial-gradient(#daaf1b 25%, transparent 26%);
   background-size: 1.2em 1.2em;
   background-position: right top;
   background-repeat: no-repeat;
