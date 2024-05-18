@@ -267,18 +267,13 @@ function checkmessage() {
     return true;
   }
 }
-const user = {
-  name: nameInput.value,
-  email: emailInput.value,
-  website: userWeb.value,
-  message: mesage.value,
-};
+
 nameInput.addEventListener("input", checkUserName);
 
 emailInput.addEventListener("input", checkEmail);
 userWeb.addEventListener("input", chekweb);
 mesage.addEventListener("input", checkmessage);
-form.addEventListener("submit", async (event) => {
+/* form.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData();
 
@@ -286,8 +281,6 @@ form.addEventListener("submit", async (event) => {
   formData.append("email", emailInput.value);
   formData.append("web", userWeb.value);
   formData.append("message", mesage.value);
-
-  /* console.log(Array.from(formData)); */
 
   try {
     const res = await fetch("https://borjomi.loremipsum.ge/api/send-message", {
@@ -310,7 +303,7 @@ form.addEventListener("submit", async (event) => {
   } catch (err) {
     console.log(err.message);
   }
-});
+}); */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -321,7 +314,90 @@ form.addEventListener("submit", (e) => {
   const ismessageValid = checkmessage();
 
   if (isUserNameValid && isEmailValid && isWebValid && ismessageValid) {
+    const user = {
+      name: nameInput.value,
+      email: emailInput.value,
+      web: userWeb.value,
+      message: mesage.value,
+    };
+    const dataToSend = JSON.stringify(user);
+    let dataReceived = "";
+    fetch("https://borjomi.loremipsum.ge/api/send-message", {
+      /*  credentials: "same-origin", */
+      mode: "no-cors",
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: dataToSend,
+    })
+      .then((resp) => {
+        if (resp.status === 1) {
+          form.classList.add("remove");
+          dialog.classList.add("open");
+        } else {
+          console.log("Status: " + resp.status);
+          return Promise.reject("server");
+        }
+      })
+      .then((dataJson) => {
+        dataReceived = JSON.parse(dataJson);
+      })
+      .catch((err) => {
+        if (err === "server") return;
+        console.log(err);
+      });
+
+    console.log(`Received: ${dataReceived}`);
   } else {
     formSpan.textContent = "something wrong";
   }
 });
+
+/* function sendmessage() {
+  const user = {
+    name: nameInput.value,
+    email: emailInput.value,
+    web: userWeb.value,
+    message: mesage.value,
+  };
+
+  fetch("https://borjomi.loremipsum.ge/api/send-message", {
+    method: "POST",
+    mode: "no-cors",
+    body: JSON.stringify(user),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(user);
+
+  if (user.status === 1) {
+    form.classList.add("remove");
+    dialog.classList.add("open");
+  } else {
+    console.log("hello");
+    console.error();
+  }
+} */
+/* function sendmessage(userr) {
+  const user = {
+    name: nameInput.value,
+    email: emailInput.value,
+    web: userWeb.value,
+    message: mesage.value,
+  };
+  console.log(userr, JSON.stringify(userr));
+
+  fetch("https://borjomi.loremipsum.ge/api/send-message", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userr),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(user);
+    });
+}
+ */
