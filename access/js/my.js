@@ -322,13 +322,13 @@ form.addEventListener("submit", (e) => {
     };
     const dataToSend = JSON.stringify(user);
     let dataReceived = "";
-    fetch("https://borjomi.loremipsum.ge/api/send-message", {
-      /*  credentials: "same-origin", */
+    /*    fetch("https://borjomi.loremipsum.ge/api/send-message", {
       mode: "no-cors",
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: dataToSend,
     })
+      .then((resp) => resp.json())
       .then((resp) => {
         if (resp.status === 1) {
           form.classList.add("remove");
@@ -337,8 +337,6 @@ form.addEventListener("submit", (e) => {
           console.log("Status: " + resp.status);
           return Promise.reject("server");
         }
-      })
-      .then((dataJson) => {
         dataReceived = JSON.parse(dataJson);
       })
       .catch((err) => {
@@ -346,7 +344,31 @@ form.addEventListener("submit", (e) => {
         console.log(err);
       });
 
-    console.log(`Received: ${dataReceived}`);
+    console.log(`Received: ${dataReceived}`); */
+    fetch("https://borjomi.loremipsum.ge/api/send-message", {
+      mode: "no-cors",
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: dataToSend,
+    })
+      /* .then((resp) => {
+        resp = resp.json();
+      }) */
+      .then((resp) => {
+        if (resp.status === 1) {
+          form.classList.add("remove");
+          dialog.classList.add("open");
+          return resp.JSON();
+        } else {
+          console.log("Status: " + resp.status);
+          return Promise.reject("server");
+        }
+      })
+
+      .catch((err) => {
+        if (err === "server") return;
+        console.log(err);
+      });
   } else {
     formSpan.textContent = "something wrong";
   }
